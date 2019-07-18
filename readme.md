@@ -1,5 +1,11 @@
 # Meter display segmentation and reading the digits using OCR
 
+### Packages required:
+1. os
+2. OpenCV
+3. Numpy
+4. PIL
+
 Following step has been used to extract the meter display:
 
 1. Read the image
