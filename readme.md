@@ -1,10 +1,14 @@
 # Meter display segmentation and reading the digits using OCR
 
+![BB](output/meter_disp_bb/344205104483_bb.png)
+![Disp-Ext](output/meter_disp_ext/344205104483_ext.png)
+![Thresholding](output/meter_disp_ext_pp/344205104483_pp.png)
+
 ### Packages required:
-1. os
-2. OpenCV
-3. Numpy
-4. PIL
+1. OS `import os`
+2. OpenCV v3.4.3 `import cv2`
+3. Numpy v1.16 `import numpy as np`
+4. PIL `from PIL import Image`
 
 Following step has been used to extract the meter display:
 
