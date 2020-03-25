@@ -1,35 +1,13 @@
-
-# coding: utf-8
-
-# In[1]:
-
-
 import os
 import cv2
 import numpy as np
-from PIL import Image
-
-
-# In[2]:
 
 
 path = "./meter_reading_images/"
 files = [file for file in os.listdir(path) if file.endswith('.png')]
 print(sorted(files))
 
-
-# In[ ]:
-
-
-# Desent results with this range
-# roi_lower = np.array([40, 25, 0])
-# roi_upper = np.array( [80, 255, 255])
-
-
-# In[60]:
-
-
-def meter_disp_segment(img_path):
+def meter_disp_segment(img_path, debug=True):
     print(img_path)
     imgArr_o = cv2.imread(path + img_path)
     imgArr = cv2.cvtColor(imgArr_o, cv2.COLOR_BGR2HSV)
@@ -55,16 +33,12 @@ def meter_disp_segment(img_path):
         cv2.rectangle(imgArr_o, (x, y), (x + w + int(wbuffer), y + h + int(hbuffer)), (255, 0, 255), 10)
         break
 
-    DEBUG = True
-    if DEBUG:
+    if debug:
         cv2.imwrite('./output/meter_disp_ext/' + img_path.split('.')[0] + '_ext.png', imgArr_ext)
         cv2.imwrite('./output/mask/' + img_path.split('.')[0] + '_mask.png', mask)
         cv2.imwrite('./output/meter_disp_bb/' + img_path.split('.')[0] + '_bb.png', imgArr_o)
         cv2.imwrite('./output/meter_disp_ext_pp/' + img_path.split('.')[0] + '_pp.png', imgArr_ext_pp)
     print(img_path + '--> DONE')
-
-
-# In[61]:
 
 
 for meter in files:
